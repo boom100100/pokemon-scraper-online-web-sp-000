@@ -18,19 +18,7 @@ class Pokemon
       #update
 
 
-      sql = <<-SQL
-      SELECT * FROM pokemon WHERE name = ?;
-      SQL
-
-      row = db.execute(sql, name)
-      #puts row
-      #puts hash
-      hash = { :id => 100000, :name => name, :type => type, :db => db}
-      #puts hash
-      #puts row
-      pokemon = self.new(hash)
-
-      pokemon
+      db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
 
 
 
