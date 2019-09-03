@@ -23,6 +23,7 @@ class Pokemon
       SQL
 
       puts db
+      puts db[0]
       db.
       row = db.execute(sql, name)
       puts row
