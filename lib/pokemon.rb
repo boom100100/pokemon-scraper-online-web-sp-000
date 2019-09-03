@@ -17,7 +17,7 @@ class Pokemon
   def self.save(name, type, db)
 
       #update
-      hash = { :name => name, :type => type, :db => db }
+
 
       sql = <<-SQL
       SELECT * FROM pokemon WHERE name = ?;
@@ -27,7 +27,7 @@ class Pokemon
       row = db.execute(sql, name)[0]
       puts row
       puts hash
-      hash[:id] = row[0]
+      hash = { :name => name, :type => type, :db => db, :id = row[0] }
       puts hash
       #puts row
       pokemon = self.new(hash)
