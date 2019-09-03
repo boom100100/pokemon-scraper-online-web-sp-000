@@ -39,10 +39,10 @@ class Pokemon
 
   end
 
-  def self.find(id)
+  def self.find(id, db)
     sql = "SELECT * FROM pokemon WHERE id = ?;"
-    row = DB[:conn].execute(sql, id)[0]
-    hash = {:id => row[0], :name => row[1], :type => row[2],:db => DB[:conn]}
+    row = db.execute(sql, id)[0]
+    hash = {:id => row[0], :name => row[1], :type => row[2],:db => db}
     self.new(hash)
   end
 
