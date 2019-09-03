@@ -24,6 +24,7 @@ class Pokemon
       SQL
 
       puts db
+      db.
       row = db.execute(sql, name)
       puts row
       #puts hash
