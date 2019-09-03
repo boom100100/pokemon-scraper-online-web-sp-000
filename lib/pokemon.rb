@@ -20,7 +20,7 @@ class Pokemon
       hash = { :name => name, :type => type, :db => db }
 
       sql = <<-SQL
-      SELECT * FROM pokemon WHERE name = ? AND type = ?;
+      SELECT * FROM pokemon WHERE name = ?;
       SQL
 
 
