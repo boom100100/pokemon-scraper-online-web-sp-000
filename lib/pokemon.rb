@@ -42,6 +42,7 @@ class Pokemon
   def self.find(id)
     sql = "SELECT * FROM pokemon WHERE id = ?;"
     row = DB[:conn].execute(sql, id)[0]
+    hash = {:id => row[0], :name => row[1], :type => row[2],:db => DB[:conn]}
     self.new(row[1])
   end
 
