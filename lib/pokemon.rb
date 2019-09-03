@@ -1,28 +1,35 @@
 class Pokemon
-  attr_accessor :name, :type, :db
-  attr_reader :id
+  attr_accessor :id, :name, :type, :db
+  #attr_reader
 
-  def initialize(db, db1, db2, db3)
+  def initialize(hash)
+
+    #fix. make hash because keyword arguments are actually passed as a single hash
 
 
-
-    #@db = db
+    @id = hash[:id]
+    @name = hash[:name]
+    @type = hash[:type]
+    @db = hash[:db]
 
   end
 
   def self.save(name, type, db)
 
       #update
+      hash = { :name => name, :type => type, :db => db }
 
       sql = <<-SQL
-      SELECT * FROM pokemon WHERE name = ? AND type = ?;
+      SELECT * FROM pokemon WHERE name = ? AND type = ? LIMIT 1;
       SQL
 
-      row = db.execute(sql, name, type)[0]
-      pokemon = self.new(db)
-      pokemon.id = row
-      pokemon.name = name
-      pokemon.type = type
+
+      row = db.execute(sql, name, type)
+      hash[:id] = row[0]
+      puts hash
+      puts row
+      pokemon = self.new(hash)
+
       pokemon
 
 
