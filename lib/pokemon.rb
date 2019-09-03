@@ -5,8 +5,7 @@ class Pokemon
   def initialize(hash)
 
     #fix. make hash because keyword arguments are actually passed as a single hash
-
-
+    puts hash
     @id = hash[:id]
     @name = hash[:name]
     @type = hash[:type]
