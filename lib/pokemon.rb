@@ -22,9 +22,6 @@ class Pokemon
       SELECT * FROM pokemon WHERE name = ?;
       SQL
 
-      puts db
-      puts db[0]
-      db.
       row = db.execute(sql, name)
       puts row
       #puts hash
