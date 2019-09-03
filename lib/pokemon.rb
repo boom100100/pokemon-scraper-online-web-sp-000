@@ -24,7 +24,7 @@ class Pokemon
       SQL
 
 
-      row = db.execute(sql, name, type)
+      row = db.execute(sql, name, type)[0]
       hash[:id] = row[0]
       puts hash
       puts row
